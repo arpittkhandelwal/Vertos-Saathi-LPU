@@ -155,10 +155,14 @@ print("="*60)
 cm = confusion_matrix(y_test, y_test_pred)
 print(cm)
 
-# ============= STEP 7: SAVE MODELS =============
+# ============= STEP 7: SAVE TRAINED MODELS =============
 print("\n" + "="*60)
 print("STEP 7: Saving Trained Models")
 print("="*60)
+
+# Create models directory if it doesn't exist
+import os
+os.makedirs('models', exist_ok=True)
 
 # Save the trained model
 with open('models/chatbot_model.pkl', 'wb') as f:
