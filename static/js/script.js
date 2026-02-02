@@ -60,18 +60,18 @@ function appendMessage(text, sender, mode = null) {
     const contentDiv = document.createElement('div');
     contentDiv.classList.add('message-content');
 
-    // Mode badge
+    // Message text (show first)
+    const textSpan = document.createElement('span');
+    textSpan.innerHTML = formatMessage(text);
+    contentDiv.appendChild(textSpan);
+
+    // Mode badge (show after message)
     if (sender === 'bot' && mode && mode !== 'auto' && mode !== 'error') {
         const badge = document.createElement('div');
         badge.classList.add('mode-badge');
         badge.textContent = `📍 ${mode}`;
         contentDiv.appendChild(badge);
     }
-
-    // Message text
-    const textSpan = document.createElement('span');
-    textSpan.innerHTML = formatMessage(text);
-    contentDiv.appendChild(textSpan);
 
     // Copy button for bot messages
     if (sender === 'bot' && mode !== 'error') {
