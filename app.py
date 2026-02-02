@@ -120,7 +120,7 @@ def get_best_answer(question, mode=None):
         confidence = 1.0  # User selected mode manually
     
     # Filter dataset by mode
-    mode_df = df[df['mode'] == mode]
+    mode_df = df[df['Mode'] == mode]
     
     if len(mode_df) == 0:
         return "Sorry, I don't have information about that mode.", mode, 0.0
@@ -149,7 +149,7 @@ def get_best_answer(question, mode=None):
         return f"Sorry, I don't have enough information about that in {mode} mode. Please try rephrasing your question or contact the university for specific details.", mode, best_similarity
     
     # Get the answer
-    answer = mode_df.iloc[best_idx]['answer']
+    answer = mode_df.iloc[best_idx]['Answer']
     
     return answer, mode, best_similarity
 
